@@ -3,4 +3,12 @@
     <string name="deteils">Детали</string>
     <string name="badgoodevil">Хороший плохой злой</string>
     <string name="justiceleage">Лига справедливости</string>
+    <string name="content_description_film1">Лига справедливости</string>
+    <string name="titleOffilm1">Лига справедливости</string>
+    <string name="action_1">Детали</string>
+    <string name="action_2">Нравиться</string>
+    <string name="title_film1">Лига справедливости</string>
+    <string name="sub_title_film1">Краткое описание фильма лига справедливости</string>
+    <string name="film2_text">Mortal combat</string>
+    <string name="sub_title_example">Краткое описание фильма</string>
 </resources>
