@@ -3,8 +3,6 @@ package com.vladborisov.filmsearchproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
@@ -24,36 +22,11 @@ public class ShowFilm extends AppCompatActivity {
                 break;
             case 1:
                 setContentView(R.layout.film1);
-                Button button = findViewById(R.id.button3);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        EditText editText = findViewById(R.id.editTextTextPersonName2);
-                        CheckBox checkBox = findViewById(R.id.checkBox);
-                        intent.putExtra(MainActivity.ANSWER_CHECKBOX, checkBox.isChecked());
-                        intent.putExtra(MainActivity.ANSWER_COMMENT, editText.getText().toString());
-                        System.out.println("Чекбокс - " + checkBox.isChecked() + "; " + editText.getText().toString() + ";");
-                        onBackPressed();
-                    }
-                });
                 break;
             case 2:
                 setContentView(R.layout.film2);
-                button = findViewById(R.id.button3);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        EditText editText = findViewById(R.id.editTextTextPersonName2);
-                        CheckBox checkBox = findViewById(R.id.checkBox);
-                        intent.putExtra(MainActivity.ANSWER_CHECKBOX, checkBox.isChecked());
-                        intent.putExtra(MainActivity.ANSWER_COMMENT, editText.getText().toString());
-                        System.out.println("Чекбокс - " + checkBox.isChecked() + "; " + editText.getText().toString() + ";");
-                        onBackPressed();
-                    }
-                });
                 break;
         }
-        //setResult(RESULT_OK, intent);*/
    }
 
     @Override
