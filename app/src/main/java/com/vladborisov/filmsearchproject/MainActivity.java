@@ -3,13 +3,17 @@ package com.vladborisov.filmsearchproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.Toast;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
     static final String ANSWER_CHECKBOX = "Checkbox";
     static final String ANSWER_COMMENT = "Comments";
     static final String ANSWER = "Answer";
@@ -21,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_draw_open, R.string.nav_draw_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
         Button button1 = findViewById(R.id.action_details_film1);
         Button button2 = findViewById(R.id.action_details_film2);
         button1.setOnClickListener(new View.OnClickListener() {
@@ -35,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
                 startIntent(2);
             }
         });
+        toolbar.setOnMenuItemClickListener(this);
     }
 
-    public void inviteFriend(View view) {
+    public void inviteFriend() {
         Intent sendInvite = new Intent();
         sendInvite.setAction(Intent.ACTION_SEND);
         sendInvite.putExtra(Intent.EXTRA_TEXT, msg);
@@ -76,5 +86,13 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onActivityResult ANSWER_CHECKBOX: [" + answerCheckbox + "]");
             Log.d(TAG, "onActivityResult ANSWER_COMMENT: [" + answerComment + "]");
         }
+    }
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_share) {
+            inviteFriend();
+            return true;
+        } else return false;
     }
 }

@@ -11,4 +11,14 @@
     <string name="sub_title_film1">Краткое описание фильма лига справедливости</string>
     <string name="film2_text">Mortal combat</string>
     <string name="sub_title_example">Краткое описание фильма</string>
+    <string name="title_main_menu">Фильмы</string>
+    <string name="nav_draw_open">open</string>
+    <string name="nav_draw_close">close</string>
+    <string name="like">Нравиться</string>
+    <string name="hint_coomment_edit">Ваш комментарий...</string>
+    <string name="button_added_com">Добавить комментарий</string>
+    <string name="about_menu">О программе</string>
+    <string name="main_screen">Главный экран</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_share">Поделиться</string>
 </resources>

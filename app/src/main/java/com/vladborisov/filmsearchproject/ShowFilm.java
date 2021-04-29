@@ -32,7 +32,7 @@ public class ShowFilm extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(ShowFilm.this, MainActivity.class);
-        EditText editText = findViewById(R.id.editTextTextPersonName2);
+        EditText editText = findViewById(R.id.text_input_comment2);
         CheckBox checkBox = findViewById(R.id.checkBox);
         String TAG = "LOG_SHOW_ACTIVITY";
         Log.d(TAG, checkBox.isChecked() + editText.getText().toString());
