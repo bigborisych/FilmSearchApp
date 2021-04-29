@@ -1,12 +1,17 @@
 package com.vladborisov.filmsearchproject;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +50,41 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             }
         });
         toolbar.setOnMenuItemClickListener(this);
+
+
+        /*
+         *   :D
+         * */
+        final TextView textView = findViewById(R.id.sub_title_film1);
+        textView.setAlpha((float) 0.0);
+        final TextView textView1 = findViewById(R.id.sub_title_film2);
+        textView1.setAlpha((float) 0.0);
+        final TextView textView2 = findViewById(R.id.sub_title_film3);
+        textView2.setAlpha((float) 0.0);
+
+        ImageView imageView1 = findViewById(R.id.image_view1);
+        imageView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animationAlphaToNonAlpha(textView);
+            }
+        });
+        ImageView imageView2 = findViewById(R.id.image_view2);
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animationAlphaToNonAlpha(textView1);
+            }
+        });
+        ImageView imageView3 = findViewById(R.id.image_view3);
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animationAlphaToNonAlpha(textView2);
+            }
+        });
+
+
     }
 
     public void inviteFriend() {
@@ -87,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             Log.d(TAG, "onActivityResult ANSWER_COMMENT: [" + answerComment + "]");
         }
     }
+
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         int id = item.getItemId();
@@ -94,5 +135,15 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             inviteFriend();
             return true;
         } else return false;
+    }
+
+    public void animationAlphaToNonAlpha(View view) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", (float) 1.0);
+        AnimatorSet set = new AnimatorSet();
+        set.play(animator);
+        set.setDuration(1000);
+        set.setInterpolator(new DecelerateInterpolator());
+        set.setStartDelay(1000);
+        set.start();
     }
 }

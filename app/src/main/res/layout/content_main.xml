@@ -45,6 +45,7 @@
             <!-- Media -->
             <!-- Требование к картинке - вертикальный постер-->
             <ImageView
+                android:id="@+id/image_view1"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/content_description_film1"
@@ -72,7 +73,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/sub_title_film2"
+                        android:id="@+id/sub_title_film1"
                         android:layout_width="wrap_content"
                         android:layout_height="120dp"
                         android:padding="5dp"
@@ -126,6 +127,7 @@
             <!-- Media -->
             <!-- Требование к картинке - вертикальный постер-->
             <ImageView
+                android:id="@+id/image_view2"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/content_description_film1"
@@ -153,7 +155,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/sub_title_film1"
+                        android:id="@+id/sub_title_film2"
                         android:layout_width="wrap_content"
                         android:layout_height="120dp"
                         android:padding="5dp"
@@ -207,6 +209,7 @@
             <!-- Media -->
             <!-- Требование к картинке - вертикальный постер-->
             <ImageView
+                android:id="@+id/image_view3"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/content_description_film1"
