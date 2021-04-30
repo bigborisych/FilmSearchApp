@@ -9,7 +9,7 @@
     <string name="action_2">Нравиться</string>
     <string name="title_film1">Лига справедливости</string>
     <string name="sub_title_film1">Краткое описание фильма лига справедливости</string>
-    <string name="film2_text">Mortal combat</string>
+    <string name="title_film2">Mortal combat</string>
     <string name="sub_title_example">Краткое описание фильма</string>
     <string name="title_main_menu">Фильмы</string>
     <string name="nav_draw_open">open</string>
@@ -21,4 +21,6 @@
     <string name="main_screen">Главный экран</string>
     <string name="action_settings">Настройки</string>
     <string name="action_share">Поделиться</string>
+    <string name="action_button">action_button</string>
+    <string name="add_film">Добавить фильм</string>
 </resources>

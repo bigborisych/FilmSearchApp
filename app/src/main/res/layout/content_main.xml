@@ -6,7 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/default_activity_fab_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:contentDescription="@string/action_button"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#ffff"/>
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -45,6 +53,7 @@
             <!-- Media -->
             <!-- Требование к картинке - вертикальный постер-->
             <ImageView
+                android:onClick="onImageClick"
                 android:id="@+id/image_view1"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
@@ -68,12 +77,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="@string/film2_text"
+                        android:text="@string/title_film2"
                         android:textColor="#000000"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/sub_title_film1"
+                        android:alpha="0.0"
                         android:layout_width="wrap_content"
                         android:layout_height="120dp"
                         android:padding="5dp"
@@ -93,14 +103,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="@string/action_1"
-                        android:textSize="12sp"/>
+                        android:onClick="onClick"
+                        android:textSize="12sp"
+                        tools:ignore="ButtonStyle" />
 
                     <Button
                         android:id="@+id/action_like_film1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/action_2"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        tools:ignore="ButtonStyle" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -127,6 +140,7 @@
             <!-- Media -->
             <!-- Требование к картинке - вертикальный постер-->
             <ImageView
+                android:onClick="onImageClick"
                 android:id="@+id/image_view2"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
@@ -150,12 +164,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="@string/film2_text"
+                        android:text="@string/title_film2"
                         android:textColor="#000000"
                         android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/sub_title_film2"
+                        android:alpha="0.0"
                         android:layout_width="wrap_content"
                         android:layout_height="120dp"
                         android:padding="5dp"
@@ -174,15 +189,18 @@
                         android:id="@+id/action_details_film2"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:onClick="onClick"
                         android:text="@string/action_1"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        tools:ignore="ButtonStyle" />
 
                     <Button
                         android:id="@+id/action_like_film2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/action_2"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        tools:ignore="ButtonStyle" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -209,6 +227,7 @@
             <!-- Media -->
             <!-- Требование к картинке - вертикальный постер-->
             <ImageView
+                android:onClick="onImageClick"
                 android:id="@+id/image_view3"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
@@ -232,11 +251,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="@string/film2_text"
+                        android:text="@string/title_film2"
                         android:textColor="#000000"
                         android:textSize="14sp" />
 
                     <TextView
+                        android:alpha="0.0"
                         android:id="@+id/sub_title_film3"
                         android:layout_width="wrap_content"
                         android:layout_height="120dp"
@@ -254,17 +274,20 @@
 
                     <Button
                         android:id="@+id/action_details_film3"
+                        android:onClick="onClick"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="@string/action_1"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        tools:ignore="ButtonStyle" />
 
                     <Button
                         android:id="@+id/action_like_film3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/action_2"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        tools:ignore="ButtonStyle" />
                 </LinearLayout>
 
             </LinearLayout>

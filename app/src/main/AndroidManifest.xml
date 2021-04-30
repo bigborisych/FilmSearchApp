@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.Light.NoActionBar">
+        <activity android:name=".ActivityAddFilm"></activity>
         <activity android:name=".ShowFilm" />
         <activity android:name=".MainActivity">
             <intent-filter>
