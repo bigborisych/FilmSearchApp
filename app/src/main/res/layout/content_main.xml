@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:contentDescription="@string/action_button"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/ic_add"
         app:backgroundTint="#ffff"/>
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -57,7 +57,7 @@
                 android:id="@+id/image_view1"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/content_description_film1"
+                android:contentDescription="@string/content_description_example"
                 android:scaleType='centerCrop'
                 app:srcCompat="@drawable/film1" />
 
@@ -144,7 +144,7 @@
                 android:id="@+id/image_view2"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/content_description_film1"
+                android:contentDescription="@string/content_description_example"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/film2" />
 
@@ -231,7 +231,7 @@
                 android:id="@+id/image_view3"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/content_description_film1"
+                android:contentDescription="@string/content_description_example"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/film2" />
 

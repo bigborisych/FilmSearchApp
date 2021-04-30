@@ -4,13 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.chip.Chip;
 
 import java.util.zip.Inflater;
 
@@ -36,8 +42,19 @@ public class ShowFilm extends AppCompatActivity {
                 break;
         }
         showFilmConstraint.addView(view);
+        view = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_main, showFilmConstraint, false);
+        showFilmConstraint.addView(view);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                LinearLayout bottomSheetLayout = findViewById(R.id.bottom_sheet);
+                BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+                return true;
+            }
+        });
     }
-
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(ShowFilm.this, MainActivity.class);

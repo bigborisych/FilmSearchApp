@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">FilmSearchProject</string>
-    <string name="deteils">Детали</string>
-    <string name="badgoodevil">Хороший плохой злой</string>
-    <string name="justiceleage">Лига справедливости</string>
-    <string name="content_description_film1">Лига справедливости</string>
+    <string name="content_description_example">Описание</string>
     <string name="titleOffilm1">Лига справедливости</string>
     <string name="action_1">Детали</string>
     <string name="action_2">Нравиться</string>
@@ -23,4 +20,9 @@
     <string name="action_share">Поделиться</string>
     <string name="action_button">action_button</string>
     <string name="add_film">Добавить фильм</string>
+    <string name="add_film_action_button">Добавить фильм</string>
+    <string name="edit_film_sub_title_hint">Введите описание фильма</string>
+    <string name="edit_film_title_hint">Введите название фильма</string>
+    <string name="share_sheet_bottom">Поделиться</string>
+    <string name="bottom_sheet_like">Нравиться</string>
 </resources>
