@@ -48,7 +48,7 @@ public class ShowFilm extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                LinearLayout bottomSheetLayout = findViewById(R.id.bottom_sheet);
+                LinearLayout bottomSheetLayout = findViewById(R.id.bottom_sheet_main_bottom_sheet);
                 BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
                 return true;
