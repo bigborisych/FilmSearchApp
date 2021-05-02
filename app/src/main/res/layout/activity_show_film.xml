@@ -5,5 +5,5 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShowFilm"
-    android:id="@+id/container">
+    android:id="@+id/activity_show_container">
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,16 +9,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener, View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
     static final String ANSWER_CHECKBOX = "Checkbox";
     static final String ANSWER_COMMENT = "Comments";
     static final String ANSWER = "Answer";
@@ -27,21 +33,30 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
     final static int REQUEST_CODE = 228;
     private static final String INVITE_MASSAGE = "Заходи на огонек!";
     private static final String INVITE_TITLE = "Пригласить друга";
+    private List<Film> defaultsContent;
+    private FilmAdapter filmAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        defaultsContent = generateFilmList();
+        /* Setup recyclerView */
+        setupRecyclerView();
+        onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
+        onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
+        onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
+        onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
+        onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
         /* Create Navigation view and listener on toolbar menu*/
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        Toolbar toolbar = findViewById(R.id.content_main_toolbar);
+        DrawerLayout drawerLayout = findViewById(R.id.activity_main_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_draw_open, R.string.nav_draw_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         toolbar.setOnMenuItemClickListener(this);
 
         /*Listener on fab*/
-        FloatingActionButton floatingActionButton = findViewById(R.id.default_activity_fab_button);
+        FloatingActionButton floatingActionButton = findViewById(R.id.content_main_fab_button);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         });
 
     }
-    public void inviteFriend() {
+    private void inviteFriend() {
         Intent sendInvite = new Intent();
         sendInvite.setAction(Intent.ACTION_SEND);
         sendInvite.putExtra(Intent.EXTRA_TEXT, INVITE_MASSAGE);
@@ -61,12 +76,12 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             startActivity(chooser);
         }
     }
-
+/*
     public void startActivityForResultWithPutParams(Integer num) {
         Intent intent = new Intent(MainActivity.this, ShowFilm.class);
         intent.putExtra(NAME_NUMBER_OF_CHOOSE_FILM_EXTRA, num);
         startActivityForResult(intent, REQUEST_CODE);
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -92,40 +107,29 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             return true;
         } else return false;
     }
+    private void onAddClick(String title, String subTitle, int resource){
+        defaultsContent.add(generateNewFilm(title, subTitle, resource));
+        filmAdapter.notifyDataSetChanged();
+    }
+    private Film generateNewFilm(String title, String subTitle, int resource){
+        return new Film(title, subTitle, resource);
+    }
+    private List<Film> generateFilmList(){
+        List<Film> films = new ArrayList<>();
+        films.add(new Film("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1));
+        films.add(new Film("Мортал комбат", "Описание к мортал комбат", R.drawable.film2));
 
-    public void animationAlphaToNonAlpha(View view) {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", (float) 1.0);
-        AnimatorSet set = new AnimatorSet();
-        set.play(animator);
-        set.setDuration(1000);
-        set.setInterpolator(new DecelerateInterpolator());
-        set.setStartDelay(1000);
-        set.start();
+        return films;
     }
-    public void onImageClick(View view){
-        int id = view.getId();
-        TextView textView;
-        if(id == R.id.image_view1){
-            textView = findViewById(R.id.sub_title_film1);
-            animationAlphaToNonAlpha(textView);
-        }else if(id == R.id.image_view2){
-            textView = findViewById(R.id.sub_title_film2);
-            animationAlphaToNonAlpha(textView);
-        }else if(id == R.id.image_view3){
-            textView = findViewById(R.id.sub_title_film3);
-            animationAlphaToNonAlpha(textView);
-        }
+    private void onFilmClick(Film film) {
+        Toast.makeText(MainActivity.this, film.title, Toast.LENGTH_SHORT).show();
+    }
+    private void setupRecyclerView(){
+        RecyclerView recyclerView = findViewById(R.id.content_main_films_list);
+        filmAdapter = new FilmAdapter(defaultsContent, this::onFilmClick);
+        recyclerView.setAdapter(filmAdapter);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
     }
 
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        if(id == R.id.action_details_film1){
-            startActivityForResultWithPutParams(1);
-        }else if(id == R.id.action_details_film2){
-            startActivityForResultWithPutParams(2);
-        }else if(id == R.id.action_details_film3){
-            startActivityForResultWithPutParams(3);
-        }
-    }
 }
