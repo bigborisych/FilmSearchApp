@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         toolbar.setOnMenuItemClickListener(this);
-
         /*Listener on fab*/
         FloatingActionButton floatingActionButton = findViewById(R.id.content_main_fab_button);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -76,12 +75,12 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
             startActivity(chooser);
         }
     }
-/*
+
     public void startActivityForResultWithPutParams(Integer num) {
         Intent intent = new Intent(MainActivity.this, ShowFilm.class);
         intent.putExtra(NAME_NUMBER_OF_CHOOSE_FILM_EXTRA, num);
         startActivityForResult(intent, REQUEST_CODE);
-    }*/
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -122,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         return films;
     }
     private void onFilmClick(Film film) {
-        Toast.makeText(MainActivity.this, film.title, Toast.LENGTH_SHORT).show();
+        startActivityForResultWithPutParams(1);
     }
     private void setupRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.content_main_films_list);

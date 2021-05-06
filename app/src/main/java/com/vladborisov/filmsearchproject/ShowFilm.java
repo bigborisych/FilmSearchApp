@@ -1,6 +1,7 @@
 package com.vladborisov.filmsearchproject;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.chip.Chip;
 
@@ -27,7 +29,13 @@ public class ShowFilm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_film);
-        final Intent intent = getIntent();
+        Toolbar toolbar = findViewById(R.id.activity_show_film_toolbar);
+        toolbar.setTitle("Лига справедливости");
+        setSupportActionBar(toolbar);
+        /*
+        final Toolbar toolbar = findViewById(R.id.toolbar2);
+        toolbar.setTitle("Collapsing toolbar");*/
+        /*final Intent intent = getIntent();
         int data;
         data = intent.getIntExtra(MainActivity.NAME_NUMBER_OF_CHOOSE_FILM_EXTRA, 1);
         ViewGroup showFilmConstraint = findViewById(R.id.container);
@@ -53,16 +61,16 @@ public class ShowFilm extends AppCompatActivity {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
                 return true;
             }
-        });
+        });*/
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(ShowFilm.this, MainActivity.class);
+        Intent intent = new Intent(ShowFilm.this, MainActivity.class);/*
         EditText editText = findViewById(R.id.text_input_comment2);
         CheckBox checkBox = findViewById(R.id.checkBox);
         Log.d(TAG, checkBox.isChecked() + editText.getText().toString());
         intent.putExtra(MainActivity.ANSWER_CHECKBOX, checkBox.isChecked());
-        intent.putExtra(MainActivity.ANSWER_COMMENT, editText.getText().toString());
+        intent.putExtra(MainActivity.ANSWER_COMMENT, editText.getText().toString());*/
         setResult(RESULT_OK, intent);
         super.onBackPressed();
     }
