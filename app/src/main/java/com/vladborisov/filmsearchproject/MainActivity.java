@@ -1,12 +1,17 @@
 package com.vladborisov.filmsearchproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -29,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
     private static final String INVITE_TITLE = "Пригласить друга";
     private List<Film> defaultsContent;
     private FilmAdapter filmAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,25 +109,31 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         if (id == R.id.action_share) {
             inviteFriend();
             return true;
-        } else return false;
+        } else
+            return false;
     }
-    private void onAddClick(String title, String subTitle, int resource){
+
+    private void onAddClick(String title, String subTitle, int resource) {
         defaultsContent.add(generateNewFilm(title, subTitle, resource));
         filmAdapter.notifyDataSetChanged();
     }
-    private Film generateNewFilm(String title, String subTitle, int resource){
+
+    private Film generateNewFilm(String title, String subTitle, int resource) {
         return new Film(title, subTitle, resource);
     }
-    private List<Film> generateFilmList(){
+
+    private List<Film> generateFilmList() {
         List<Film> films = new ArrayList<>();
         films.add(new Film("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1));
         films.add(new Film("Мортал комбат", "Описание к мортал комбат", R.drawable.film2));
         return films;
     }
+
     private void onFilmClick(Film film) {
         startActivityForResultWithPutParams(1);
     }
-    private void setupRecyclerView(){
+
+    private void setupRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.content_main_films_list);
         filmAdapter = new FilmAdapter(defaultsContent, this::onFilmClick);
         recyclerView.setAdapter(filmAdapter);
@@ -129,4 +141,23 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         recyclerView.setLayoutManager(linearLayoutManager);
     }
 
+    public void showAlertDialog(MenuItem item) {
+        AlertDialog.Builder bld = new AlertDialog.Builder(this);
+        bld.setMessage("Вы уверены что хотите выйти?");
+        bld.setTitle("Подтвердите");
+
+        bld.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                MainActivity.super.onBackPressed();
+                dialog.dismiss();
+            }});
+        bld.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }});
+        AlertDialog dialog = bld.create();
+        dialog.show();
+    }
 }
