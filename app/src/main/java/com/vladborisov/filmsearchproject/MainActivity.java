@@ -1,15 +1,9 @@
 package com.vladborisov.filmsearchproject;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -46,11 +40,10 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
         onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
         onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
-        onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
+        onAddClick("Мортал комбат", "Описание к мортал комбат", R.drawable.film2);
         /* Create Navigation view and listener on toolbar menu*/
         Toolbar toolbar = findViewById(R.id.content_main_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.inflateMenu(R.menu.appbar_menu);
         DrawerLayout drawerLayout = findViewById(R.id.activity_main_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_draw_open, R.string.nav_draw_close);
         drawerLayout.addDrawerListener(toggle);
@@ -58,12 +51,9 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         toolbar.setOnMenuItemClickListener(this);
         /*Listener on fab*/
         FloatingActionButton floatingActionButton = findViewById(R.id.content_main_fab_button);
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ActivityAddFilm.class);
-                startActivity(intent);
-            }
+        floatingActionButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ActivityAddFilm.class);
+            startActivity(intent);
         });
 
     }
@@ -119,7 +109,6 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         List<Film> films = new ArrayList<>();
         films.add(new Film("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1));
         films.add(new Film("Мортал комбат", "Описание к мортал комбат", R.drawable.film2));
-
         return films;
     }
     private void onFilmClick(Film film) {
