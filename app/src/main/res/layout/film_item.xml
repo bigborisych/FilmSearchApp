@@ -76,19 +76,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="@string/action_1"
-                        android:textSize="12sp"
-                        tools:ignore="ButtonStyle"
-                        android:layout_margin="2dp"
+                        style="@style/Widget.MaterialComponents.Button.TextButton.FilmItemButton"
                         />
 
                     <Button
                         android:id="@+id/film_item_action_like_film"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="2dp"
-                        android:text="@string/action_2"
-                        android:textSize="12sp"
-                        tools:ignore="ButtonStyle" />
+                        style="@style/Widget.MaterialComponents.Button.TextButton.FilmItemButton"
+                        android:text="@string/action_2" />
                 </LinearLayout>
 
             </LinearLayout>
