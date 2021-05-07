@@ -3,8 +3,8 @@ package com.vladborisov.filmsearchproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -57,6 +57,13 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         });
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+        return true;
+    }
+
     private void inviteFriend() {
         Intent sendInvite = new Intent();
         sendInvite.setAction(Intent.ACTION_SEND);
