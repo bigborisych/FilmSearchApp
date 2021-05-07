@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         onAddClick("Лига справедливости", "Описание к лиге справедливости", R.drawable.film1);
         /* Create Navigation view and listener on toolbar menu*/
         Toolbar toolbar = findViewById(R.id.content_main_toolbar);
-        toolbar.setTitle("Лига справедливости");
         setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.appbar_menu);
         DrawerLayout drawerLayout = findViewById(R.id.activity_main_drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_draw_open, R.string.nav_draw_close);
         drawerLayout.addDrawerListener(toggle);
