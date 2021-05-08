@@ -11,8 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".ActivityAddFilm" />
-        <activity android:name=".ShowFilm" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

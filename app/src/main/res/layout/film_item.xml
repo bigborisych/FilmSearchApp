@@ -52,7 +52,7 @@
                         android:padding="5dp"
                         android:textColor="#000000"
                         android:textSize="14sp"
-                        tools:text="Film title"/>
+                        tools:text="Film title" />
 
                     <TextView
                         android:id="@+id/film_item_sub_title_film"
@@ -60,8 +60,8 @@
                         android:layout_height="120dp"
                         android:alpha="0.0"
                         android:padding="5dp"
-                        tools:text="Film description"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        tools:text="Film description" />
                 </LinearLayout>
 
                 <!-- Buttons -->
@@ -73,17 +73,16 @@
 
                     <Button
                         android:id="@+id/film_item_action_details_film"
+                        style="@style/Widget.MaterialComponents.Button.TextButton.FilmItemButton"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/action_1"
-                        style="@style/Widget.MaterialComponents.Button.TextButton.FilmItemButton"
-                        />
+                        android:text="@string/action_1" />
 
                     <Button
                         android:id="@+id/film_item_action_like_film"
+                        style="@style/Widget.MaterialComponents.Button.TextButton.FilmItemButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/Widget.MaterialComponents.Button.TextButton.FilmItemButton"
                         android:text="@string/action_2" />
                 </LinearLayout>
 
